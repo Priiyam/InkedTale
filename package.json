@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/Priiyam/MEAN-BLOG/issues"
   },
-  "homepage": "https://github.com/Priiyam/MEAN-BLOG#readme"
+  "homepage": "https://github.com/Priiyam/MEAN-BLOG#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }
