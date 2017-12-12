@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
 
+
+mongoose.Promise = global.Promise;
 app.get('*', (req, res) => {
     res.send('hello world');
 });
