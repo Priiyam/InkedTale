@@ -4,8 +4,8 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component'
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
-    { path: 'dashbboard', component: DashboardComponent},
+    { path: 'home', component: HomeComponent},
+    { path: 'dashboard', component: DashboardComponent},
     { path: '*', component: HomeComponent }
 ];
 
