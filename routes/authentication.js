@@ -14,7 +14,12 @@ module.exports = (router) => {
             });
             user.save((err) => {
                 if (err){
-                    res.json({success: false, message: 'Could not create account. Error: ', err});
+                    if (err.code == 11000){
+                        res.json({success:false, message: 'Username or email already exists.'})
+                    }
+                    else{
+                        res.json({success: false, message: 'Could not create account. Error: ', err});
+                    }
                 }
                 else{
                     res.json({success:true, message:'Account successfully created.'});
