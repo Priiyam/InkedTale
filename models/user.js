@@ -28,7 +28,7 @@ let validEmailChecker = (email) => {
     }
 };
 
-let validUsername = (username) => {
+let usernameLengthChecker = (username) => {
     if (!username){
         return false;
     }
@@ -42,18 +42,36 @@ let validUsername = (username) => {
     }
 };
 
+let validUsername = (username) => {
+    if (!email){
+        return false;
+    }
+    else {
+        const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+        return regExp.test(username);
+    }
+};
+
 const emailValidator = [{
     validator: emailLengthChecker,
-    message: 'Please enter a valid email address'
+    message: 'Username must be between 5-30 characters long.'
     },
     {
     validator: validEmailChecker,
-    message: 'Please enter a valid email address'
+    message: 'Please enter a valid email address.'
+}]
+
+const usernameValidator = [{
+    validator: usernameLengthChecker,
+    message: 'Username must be between 3-15 characters long.'
+},{
+    validator: validUsername,
+    message: 'Special character are not allowed.'
 }]
 
 const userSchema = new Schema({
     email: { type: String, required: true, unique: true, validate: emailValidator},
-    username: { type: String, required: true, unique:true},
+    username: { type: String, required: true, unique:true, validate: usernameValidator},
     password: { type: String, required: true}
 });
 
