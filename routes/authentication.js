@@ -21,6 +21,9 @@ module.exports = (router) => {
                         if (err.errors.email){
                             res.json({success:false, message: err.errors.email.message})
                         }
+                        else if (err.errors.username){
+                            res.json({success:false, message: err.errors.username.message})
+                        }
                     }
                     else{
                         res.json({success: false, message: 'Could not create account. Error: ', err});

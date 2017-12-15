@@ -33,7 +33,7 @@ let usernameLengthChecker = (username) => {
         return false;
     }
     else{
-        if (username.length< 3 || username.length > 30 ){
+        if (username.length< 3 || username.length > 15 ){
             return false;
         }
         else {
@@ -52,6 +52,20 @@ let validUsername = (username) => {
     }
 };
 
+let passwordLengthChecker = (password) => {
+    if (!password){
+        return false;
+    }
+    else{
+        if (password.length < 6 || password.length >35){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+};
+
 const emailValidator = [{
     validator: emailLengthChecker,
     message: 'Username must be between 5-30 characters long.'
@@ -66,7 +80,7 @@ const usernameValidator = [{
     message: 'Username must be between 3-15 characters long.'
 },{
     validator: validUsername,
-    message: 'Special character are not allowed.'
+    message: 'Special characters are not allowed.'
 }]
 
 const userSchema = new Schema({
