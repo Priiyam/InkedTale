@@ -17,6 +17,11 @@ module.exports = (router) => {
                     if (err.code == 11000){
                         res.json({success:false, message: 'Username or email already exists.'})
                     }
+                    else if (err.errors){
+                        if (err.errors.email){
+                            res.json({success:false, message: err.errors.email.message})
+                        }
+                    }
                     else{
                         res.json({success: false, message: 'Could not create account. Error: ', err});
                     }

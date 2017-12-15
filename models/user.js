@@ -17,9 +17,24 @@ let emailLengthChecker = (email) => {
     }
 };
 
+let validEmailChecker = (email) => {
+    // Check if e-mail exists
+    if (!email) {
+        return false; // Return error
+    } else {
+        // Regular expression to test for a valid e-mail
+        const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+        return regExp.test(email); // Return regular expression test results (true or false)
+    }
+};
+
 const emailValidator = [{
     validator: emailLengthChecker,
-    message: 'Please enter a valid email address.'
+    message: 'Please enter a valid email address'
+    },
+    {
+    validator: validEmailChecker,
+    message: 'Please enter a valid email address'
 }]
 
 const userSchema = new Schema({
