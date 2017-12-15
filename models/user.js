@@ -1,10 +1,29 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt-nodejs');
 mongoose.Promise = global.Promise;
 const Schema = mongoose.Schema;
-const bcrypt = require('bcrypt-nodejs');
+
+let emailLengthChecker = (email) => {
+    if (!email){
+        return false;
+    }
+    else{
+        if (email.length < 5 || email.length > 30){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+};
+
+const emailValidator = [{
+    validator: emailLengthChecker,
+    message: 'Please enter a valid email address.'
+}]
 
 const userSchema = new Schema({
-    email: { type: String, required: true, unique: true},
+    email: { type: String, required: true, unique: true, validate: emailValidator},
     username: { type: String, required: true, unique:true},
     password: { type: String, required: true}
 });

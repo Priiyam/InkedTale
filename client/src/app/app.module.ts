@@ -7,17 +7,17 @@ import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ //components
     AppComponent,
     NavbarComponent,
     HomeComponent,
     DashboardComponent
   ],
-  imports: [
+  imports: [ //modules
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [], //services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
