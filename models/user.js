@@ -28,6 +28,20 @@ let validEmailChecker = (email) => {
     }
 };
 
+let validUsername = (username) => {
+    if (!username){
+        return false;
+    }
+    else{
+        if (username.length< 3 || username.length > 30 ){
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+};
+
 const emailValidator = [{
     validator: emailLengthChecker,
     message: 'Please enter a valid email address'
