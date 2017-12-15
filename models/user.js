@@ -66,6 +66,16 @@ let passwordLengthChecker = (password) => {
     }
 };
 
+let validPassword = (password) => {
+    if (!password){
+        return false;
+    }
+    else{
+        const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+        return regExp.test(password);
+    }
+};
+
 const emailValidator = [{
     validator: emailLengthChecker,
     message: 'Username must be between 5-30 characters long.'
@@ -83,10 +93,18 @@ const usernameValidator = [{
     message: 'Special characters are not allowed.'
 }]
 
+const passwordValidator = [{
+    validator: passwordLengthChecker,
+    message: 'Password must be atleast 6 characters long but no more than 35.'
+},{
+    validator: validPassword,
+    message: 'Password must have at least one uppercase,lowecase, number and special character.'
+}]
+
 const userSchema = new Schema({
     email: { type: String, required: true, unique: true, validate: emailValidator},
     username: { type: String, required: true, unique:true, validate: usernameValidator},
-    password: { type: String, required: true}
+    password: { type: String, required: true, validate: passwordValidator}
 });
 
 //creating a middleware to encrypt password before saving to db
