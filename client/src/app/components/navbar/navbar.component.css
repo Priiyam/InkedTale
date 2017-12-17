@@ -1,8 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 .navbar, .dropdown-menu{
-background:#3d3d3f;
+background:#0e1a35;
 border: none;
 
 }
+
+.navbar-fixed-top {
+    min-height: 70px;
+}
+
+.navbar-brand,.navbar-nav > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 70px;
+    font-family: 'Raleway';
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+.dropdown-menu > li > a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    line-height: 40px;  
+}
+
+.dropdown-menu > li {
+    border-bottom: 1px solid #37474F!important;
+}
+
+
+@media (max-width: 767px) {
+    .navbar-nav > li > a {
+    line-height: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;}
+}
+
 
 .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
   border-bottom: 3px solid transparent;
