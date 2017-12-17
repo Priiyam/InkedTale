@@ -29,19 +29,19 @@
                                 <h1>Greetings. <span></span></h1>
                             </div>
                             <div class="login-form">
-                                <form>
+                                <form ["formGroup"]="form">
                                     <div class="form-details">
                                         <label class="user">
-                                            <input type="text" name="username" placeholder="Full Name" id="username">
+                                            <input type="text" name="username" placeholder="Full Name" id="username" formControllerName="username">
                                         </label>
                                         <label class="mail">
-                                            <input type="email" name="mail" placeholder="Email Address" id="mail">
+                                            <input type="email" name="email" placeholder="Email Address" id="mail" formControllerName="email">
                                         </label>
                                         <label class="pass">
-                                            <input type="password" name="passsword" placeholder="Password" id="password">
+                                            <input type="password" name="passsword" placeholder="Password" id="password" formControllerName="password">
                                         </label>
                                         <label class="pass">
-                                            <input type="password" name="passsword" placeholder="Confirm Password" id="password">
+                                            <input type="password" name="confirm" placeholder="Confirm Password" id="password" formControllerName="confirm">
                                         </label>
                                     </div>
                                     <button type="submit" class="form-btn" onsubmit="">Sent</button>
