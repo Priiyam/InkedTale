@@ -29,7 +29,7 @@
                                 <h1>Greetings. <span></span></h1>
                             </div>
                             <div class="login-form">
-                                <form ["formGroup"]="form">
+                                <form [formGroup]="form" (submit)="onRegisterSubmit()">
                                     <div class="form-details">
                                         <label class="user">
                                             <input type="text" name="username" placeholder="Full Name" id="username" formControllerName="username">
@@ -55,7 +55,7 @@
                                 <h1>Welcome. <span></span></h1>
                             </div>
                             <div class="login-form">
-                                <form>
+                                <div>
                                     <div class="form-details">
                                         <label class="user">
                                             <input type="text" name="username" placeholder="Username" id="username">
@@ -65,7 +65,7 @@
                                         </label>
                                     </div>
                                     <button type="submit" class="form-btn" onsubmit="">Sent</button>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

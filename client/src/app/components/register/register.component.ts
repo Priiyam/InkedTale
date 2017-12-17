@@ -10,10 +10,16 @@ export class RegisterComponent implements OnInit {
 
   form: FormGroup; // creating form of formGroup type
 
+    constructor(
+      private formBuilder: FormBuilder
+    ) {
+      this.createForm()
+    }
+
   // creating a function that creates a form
   createForm(){
     this.form = this.formBuilder.group({
-      // passing objects, fields of form
+      // passing objects, fields of form. This flexibility to create angular form control objects are not present in templateForms, directives take care of them
       email: '',
       username: '',
       password: '',
@@ -21,11 +27,9 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  constructor(
-    private formBuilder: FormBuilder
-  ) {
-    this.createForm()
-   }
+  onRegisterSubmit(){
+    console.log(this.form);
+  }
 
   ngOnInit() {
   }
