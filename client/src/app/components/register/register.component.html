@@ -32,13 +32,11 @@
                                 <form [formGroup]="form" (submit)="onRegisterSubmit()"> <!--  binding formGroup to form property in register.component -->
                                     <div class="form-details">
                                         <label class="user">
-                                            <div [ngClass] = "{ 'has-error': !form.controls.username.errors && form.comtrols.username.dirty, 'has-success': !form.controls.username.errors }" >
-                                            <input type="text" name="username" placeholder="Full Name" id="username" formControllerName="username">
-                                            <div class="help-block">
-                                                <ul>
-                                                    <li *ngIf="form.controls.username.errors.required && form.controls.username.dirty">* This field is a required field</li>
+                                            <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty), 'has-success': !form.controls.username.errors }" >
+                                                <input type="text" name="username" placeholder="*Username" id="username" formControlName="username">
+                                                <ul class="help-block">
+                                                    <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
                                                 </ul>
-                                            </div>
                                             </div>
                                         </label>
                                         <label class="mail">
