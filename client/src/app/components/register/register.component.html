@@ -45,6 +45,7 @@
                                                 <input type="text" name="email" placeholder="*Email" formControlName="email" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">* This field is a required field</li>
+                                                    <li *ngIf="form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength">Your email must be between 5-30 characters long.</li>
                                                 </ul>
                                             </div>
                                         </label>
@@ -53,6 +54,7 @@
                                                 <input type="password" name="passsword" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">* This field is a required field</li>
+                                                    <li *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength">Your username must be between 3-15 characters long.</li>
                                                 </ul>
                                             </div>
                                         </label>
@@ -62,6 +64,7 @@
                                                 <ul class="help-block">
                                                     <!-- ngIf is a directive that is used to add an element to the DOM-->
                                                     <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">* This field is a required field</li>
+                                                    <li *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength">Your username must be between 3-15 characters long.</li>
                                                 </ul>
                                             </div>
                                         </label>
