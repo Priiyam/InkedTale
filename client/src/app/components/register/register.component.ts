@@ -23,7 +23,8 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.compose([
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(30)
+        Validators.maxLength(30),
+        this.validateEmail
       ])],
       username: ['', Validators.compose([
         Validators.required,
@@ -41,6 +42,16 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(30)
       ])]
     })
+  }
+
+  validateEmail(controls){
+    const regExp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (regExp.test(controls.value)){
+      return null
+    }
+    else{
+      return {'validateEmail':true}
+    }
   }
 
   onRegisterSubmit(){

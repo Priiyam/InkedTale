@@ -36,7 +36,8 @@
                                                 <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
-                                                    <li *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength">Your username must be between 3-15 characters long.</li>
+                                                    <li *ngIf="(form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength) && form.controls.username.pristine">Your username must be between 3-15 characters long.</li>
+                                                    <li></li>
                                                 </ul>
                                             </div>
                                         </label>
@@ -45,7 +46,8 @@
                                                 <input type="text" name="email" placeholder="*Email" formControlName="email" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">* This field is a required field</li>
-                                                    <li *ngIf="form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength">Your email must be between 5-30 characters long.</li>
+                                                    <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength) && form.controls.email.dirty">Your email must be between 5-30 characters long.</li>
+                                                    <li *ngIf="form.controls.email.errors?.validateEmail && form.controls.email.dirty">Please enter a valid email.</li>
                                                 </ul>
                                             </div>
                                         </label>
