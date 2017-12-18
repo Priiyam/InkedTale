@@ -48,7 +48,12 @@
                                             </div>
                                         </label>
                                         <label class="pass">
-                                            <input type="password" name="passsword" placeholder="Password" id="password" formControllerName="password">
+                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}" >
+                                                <input type="password" name="passsword" placeholder="*Password" id="password" formControlName="password">
+                                                <ul class="help-block">
+                                                    <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">* This field is a required field</li>
+                                                </ul>
+                                            </div>
                                         </label>
                                         <label class="pass">
                                             <input type="password" name="confirm" placeholder="Confirm Password" id="password" formControllerName="confirm">
