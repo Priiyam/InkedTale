@@ -29,13 +29,25 @@
                                 <h1>Greetings. <span></span></h1>
                             </div>
                             <div class="login-form">
-                                <form [formGroup]="form" (submit)="onRegisterSubmit()">
+                                <form [formGroup]="form" (submit)="onRegisterSubmit()"> <!--  binding formGroup to form property in register.component -->
                                     <div class="form-details">
                                         <label class="user">
+                                            <div [ngClass] = "{ 'has-error': !form.controls.username.errors && form.comtrols.username.dirty, 'has-success': !form.controls.username.errors }" >
                                             <input type="text" name="username" placeholder="Full Name" id="username" formControllerName="username">
+                                            <div class="help-block">
+                                                <ul>
+                                                    <li *ngIf="form.controls.username.errors.required && form.controls.username.dirty">* This field is a required field</li>
+                                                </ul>
+                                            </div>
+                                            </div>
                                         </label>
                                         <label class="mail">
-                                            <input type="email" name="email" placeholder="Email Address" id="mail" formControllerName="email">
+                                            <div [ngClass] = "{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}" >
+                                                <input type="text" name="email"  autocomplete="off" placeholder="*Email" formControlName="email" />
+                                                <ul class="help-block">
+                                                    <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">* This field is a required field</li>
+                                                </ul>
+                                            </div>
                                         </label>
                                         <label class="pass">
                                             <input type="password" name="passsword" placeholder="Password" id="password" formControllerName="password">

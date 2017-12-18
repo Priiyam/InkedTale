@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 })
 export class RegisterComponent implements OnInit {
 
-  form: FormGroup; // creating form of formGroup type
+  form: FormGroup; // variable: type, model driven form
 
     constructor(
       private formBuilder: FormBuilder
@@ -20,10 +20,10 @@ export class RegisterComponent implements OnInit {
   createForm(){
     this.form = this.formBuilder.group({
       // passing objects, fields of form. This flexibility to create angular form control objects are not present in templateForms, directives take care of them
-      email: '',
-      username: '',
-      password: '',
-      confirm: ''
+      email: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirm: ['', Validators.required]
     })
   }
 
