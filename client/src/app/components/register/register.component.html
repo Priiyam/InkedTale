@@ -33,7 +33,7 @@
                                     <div class="form-details">
                                         <label class="user">
                                             <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty), 'has-success': !form.controls.username.errors }" >
-                                                <input type="text" name="username" placeholder="*Username" id="username" formControlName="username">
+                                                <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
                                                 </ul>
@@ -41,7 +41,7 @@
                                         </label>
                                         <label class="mail">
                                             <div [ngClass] = "{'has-error': (form.controls.email.errors && form.controls.email.dirty), 'has-success': !form.controls.email.errors}" >
-                                                <input type="text" name="email"  autocomplete="off" placeholder="*Email" formControlName="email" />
+                                                <input type="text" name="email" placeholder="*Email" formControlName="email" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">* This field is a required field</li>
                                                 </ul>
@@ -49,14 +49,20 @@
                                         </label>
                                         <label class="pass">
                                             <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': !form.controls.password.errors}" >
-                                                <input type="password" name="passsword" placeholder="*Password" id="password" formControlName="password">
+                                                <input type="password" name="passsword" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">* This field is a required field</li>
                                                 </ul>
                                             </div>
                                         </label>
                                         <label class="pass">
-                                            <input type="password" name="confirm" placeholder="Confirm Password" id="password" formControllerName="confirm">
+                                            <div [ngClass] = "{'has-error': (form.controls.confirm.errors && form.controls.confirm.dirty), 'has-success': !form.controls.confirm.errors}">
+                                                <input type="password" name="confirm" autocomplete="off" placeholder="*Confirm Password" id="password" formControlName="confirm">
+                                                <ul class="help-block">
+                                                    <!-- ngIf is a directive that is used to add an element to the DOM-->
+                                                    <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">* This field is a required field</li>
+                                                </ul>
+                                            </div>
                                         </label>
                                     </div>
                                     <button type="submit" class="form-btn" onsubmit="">Sent</button>
