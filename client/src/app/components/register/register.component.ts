@@ -20,10 +20,26 @@ export class RegisterComponent implements OnInit {
   createForm(){
     this.form = this.formBuilder.group({
       // passing objects, fields of form. This flexibility to create angular form control objects are not present in templateForms, directives take care of them
-      email: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required],
-      confirm: ['', Validators.required]
+      email: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30)
+      ])],
+      username: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(15)
+      ])],
+      password: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(35)
+      ])],
+      confirm: ['', Validators.compose([
+        Validators.required,
+        Validators.minLength(5),
+        Validators.maxLength(30)
+      ])]
     })
   }
 

@@ -36,6 +36,7 @@
                                                 <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
+                                                    <li *ngIf="form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength">Your username must be between 3-15 characters long.</li>
                                                 </ul>
                                             </div>
                                         </label>
