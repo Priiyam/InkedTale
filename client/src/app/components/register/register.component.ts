@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
         return null;
       }
       else{
-        return {'matchingPassword': true};
+        return {'matchingPasswords': true};
       }
     }
   }
