@@ -29,12 +29,14 @@ export class RegisterComponent implements OnInit {
       username: ['', Validators.compose([
         Validators.required,
         Validators.minLength(3),
-        Validators.maxLength(15)
+        Validators.maxLength(15),
+        this.validateUsername
       ])],
       password: ['', Validators.compose([
         Validators.required,
         Validators.minLength(6),
-        Validators.maxLength(35)
+        Validators.maxLength(35),
+        this.validatePassword
       ])],
       confirm: ['', Validators.compose([
         Validators.required,

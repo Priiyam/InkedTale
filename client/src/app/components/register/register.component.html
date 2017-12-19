@@ -58,7 +58,7 @@
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">* This field is a required field</li>
                                                     <li *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.maxlength">Your password must be between 6-35 characters long.</li>
-                                                    <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.register.dirty">Password must have at least one uppercase,lowecase, number and special character.</li>
+                                                    <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.password.dirty">Password must have at least one uppercase,lowecase, number and special character.</li>
                                                 </ul>
                                             </div>
                                         </label>
