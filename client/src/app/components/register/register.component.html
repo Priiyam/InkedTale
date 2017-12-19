@@ -37,6 +37,7 @@
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
                                                     <li *ngIf="(form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength) && form.controls.username.pristine">Your username must be between 3-15 characters long.</li>
+                                                    <li *ngIf="form.controls.username.errors?.validateUsername && form.controls.username.dirty">Username cannot have special characters.</li>
                                                     <li></li>
                                                 </ul>
                                             </div>
@@ -57,6 +58,7 @@
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">* This field is a required field</li>
                                                     <li *ngIf="form.controls.password.errors?.minlength || form.controls.password.errors?.maxlength">Your password must be between 6-35 characters long.</li>
+                                                    <li *ngIf="form.controls.password.errors?.validatePassword && form.controls.register.dirty">Password must have at least one uppercase,lowecase, number and special character.</li>
                                                 </ul>
                                             </div>
                                         </label>
@@ -67,6 +69,7 @@
                                                     <!-- ngIf is a directive that is used to add an element to the DOM-->
                                                     <li *ngIf="form.controls.confirm.errors?.required && form.controls.confirm.dirty">* This field is a required field</li>
                                                     <li *ngIf="form.controls.confirm.errors?.minlength || form.controls.confirm.errors?.maxlength">Your password do not match.</li>
+                                                    <li *ngIf="form.errors?.matchingPasswords && form.controls.confirm.dirty">Passwords do not match</li>
                                                 </ul>
                                             </div>
                                         </label>
