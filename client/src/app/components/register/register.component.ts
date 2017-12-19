@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(5),
         Validators.maxLength(30)
       ])]
-    })
+    }, { validator: this.matchingPasswords('password', 'confirm')});
   }
 
   validateEmail(controls){
@@ -53,6 +53,27 @@ export class RegisterComponent implements OnInit {
       return {'validateEmail':true}
     }
   }
+
+  validateUsername(controls){
+    const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
+    if (regExp.test(controls.value)){
+      return null;
+    }
+    else{
+      return {'validateUsername': true};
+    }
+  }
+
+  validatePassword(controls){
+    const regExp = new RegExp(/^(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[\d])(?=.*?[\W]).{8,35}$/);
+    if (regExp.test(controls.value)){
+      return null;
+    }
+    else{
+      return { 'validatePassword': true }
+    }
+  }
+
 
   onRegisterSubmit(){
     console.log(this.form);
