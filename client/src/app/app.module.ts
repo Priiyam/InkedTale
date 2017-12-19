@@ -21,6 +21,7 @@ import { AuthService } from './services/auth.service';
   imports: [ //modules
     BrowserModule,
     ReactiveFormsModule,
+    HttpModule,
     AppRoutingModule
   ],
   providers: [AuthService], //services
