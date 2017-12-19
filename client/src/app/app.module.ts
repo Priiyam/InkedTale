@@ -20,8 +20,8 @@ import { AuthService } from './services/auth.service';
   ],
   imports: [ //modules
     BrowserModule,
-    ReactiveFormsModule,
     HttpModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [AuthService], //services
