@@ -38,7 +38,7 @@
                                     <div class="form-details">
                                         <label class="user">
                                             <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty) || (!usernameValid && form.controls.username.dirty), 'has-success': !form.controls.username.errors && usernameValid }" >
-                                                <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username">
+                                                <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username" (blur) = "checkUsername()" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">* This field is a required field</li>
                                                     <li *ngIf="(form.controls.username.errors?.minlength || form.controls.username.errors?.maxlength) && form.controls.username.pristine">Your username must be between 3-15 characters long.</li>
@@ -49,7 +49,7 @@
                                         </label>
                                         <label class="mail">
                                             <div [ngClass] = "{'has-error': (form.controls.email.errors && form.controls.email.dirty) || (!emailValid && form.controls.email.dirty), 'has-success': !form.controls.email.errors && emailValid}" >
-                                                <input type="text" name="email" placeholder="*Email" formControlName="email" />
+                                                <input type="text" name="email" placeholder="*Email" formControlName="email" (blur) = "checkEmail()" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.email.errors?.required && form.controls.email.dirty">* This field is a required field</li>
                                                     <li *ngIf="(form.controls.email.errors?.minlength || form.controls.email.errors?.maxlength) && form.controls.email.dirty">Your email must be between 5-30 characters long.</li>
@@ -80,7 +80,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" onsubmit="">Sent</button>
+                                    <button [disabled]="!form.valid || processing || !emailValid || !usernameValid" type="submit" class="form-btn" onsubmit="">Sent</button>
                                 </form>
                             </div>
                         </div>

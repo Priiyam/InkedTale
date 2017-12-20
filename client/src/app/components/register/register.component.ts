@@ -148,7 +148,7 @@ export class RegisterComponent implements OnInit {
   }
 
   checkUsername(){
-    return this.authService.registerUser(this.form.get("username").value).subscribe(data => {
+    return this.authService.checkUsername(this.form.get("username").value).subscribe(data => {
       if (!data.success){
         this.usernameValid = false;
         this.usernameMessage = data.message;
