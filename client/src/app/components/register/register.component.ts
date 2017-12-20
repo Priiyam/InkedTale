@@ -13,6 +13,10 @@ export class RegisterComponent implements OnInit {
   message;
   messageClass;
   processing = false;
+  emailValid;
+  emailMessage;
+  usernameValid;
+  usernameMessage;
 
     constructor(
       private formBuilder: FormBuilder,
@@ -128,6 +132,23 @@ export class RegisterComponent implements OnInit {
       }
    });
 
+  }
+
+  checkEmail(){
+    return this.authService.checkEmail(this.form.get("email").value).subscribe(data => {
+      if (!data.success){
+        this.emailValid = false;
+        this.emailMessage = data.message;
+      }
+      else{
+        this.emailValid = true;
+        this.emailMessage = data.message;
+      }
+    });
+  }
+
+  checkUsername(){
+    return 
   }
 
   ngOnInit() {
