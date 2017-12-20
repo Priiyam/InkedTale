@@ -59,7 +59,26 @@ module.exports = (router) => {
                 }
             });
         }
-    }); 
+    });
+
+    router.get('/checkUsername/:username', (req, res) => {
+        if (!req.params.username){
+            res.json({success: false, message: 'Username was not provided'});
+        }
+        else{
+            User.findOne({username: req.params.username}, (err, user) => {
+                if (err){
+                    res.json({success: false, message: err});
+                }
+                else if (user){
+                    res.json({success: false, message: 'Username is already taken'});
+                }
+                else{
+                    res.json({success: true, message: 'Username is available'});
+                }
+            });
+        }
+    });  
 
     return router;
 }
