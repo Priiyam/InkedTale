@@ -12,6 +12,7 @@ export class RegisterComponent implements OnInit {
   form: FormGroup; // variable: type, model driven form
   message;
   messageClass;
+  processing = false;
 
     constructor(
       private formBuilder: FormBuilder,
@@ -92,6 +93,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onRegisterSubmit(){
+    this.processing = true;
     const user = { 
       email: this.form.get('email').value,
       username: this.form.get('username').value,
@@ -101,7 +103,8 @@ export class RegisterComponent implements OnInit {
    this.authService.registerUser(user).subscribe( data => {
       if (!data.success){
         this.messageClass = "alert alert-danger";
-        this.message = data.message
+        this.message = data.message;
+        this.processing = false;
       }
       else{
         this.messageClass = "alert alert-success";

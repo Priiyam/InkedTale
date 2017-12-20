@@ -79,7 +79,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                    <button [disabled]="!form.valid" type="submit" class="form-btn" onsubmit="">Sent</button>
+                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" onsubmit="">Sent</button>
                                 </form>
                             </div>
                         </div>
