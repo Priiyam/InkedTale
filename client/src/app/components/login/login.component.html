@@ -1,3 +1,65 @@
-<p>
-  login works!
-</p>
+<div class="login-area">
+    <div class="bg-image">
+        <div class="login-signup">
+            <div class="container">
+
+                <div class="login-header">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="login-logo">
+                                <!--<img src="" alt="merkury_logo" class="img-responsive">-->
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class="login-details">
+                                <ul class="nav nav-tabs navbar-right">
+                                    <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content">
+                    <div id="login" class="tab-pane fade in active">
+                        <div class="login-inner">
+                            <div class="title">
+                                <h1>Welcome. <span></span></h1>
+                            </div>
+                            <div class="login-form">
+                                <div class="row show-hide-message" style="padding:0px 25px 0px 25px">
+                                    <div [ngClass] = "messageClass">
+                                        {{ message }}
+                                    </div>
+                                </div>
+                                <form [formGroup]="form" (submit)="onRegisterSubmit()">
+                                    <div class="form-details">
+                                        <label class="user">
+                                            <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty) , 'has-success':  form.controls.username.valid && form.controls.username.dirty }" >
+                                                <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username" />
+                                                <ul class="help-block">
+                                                    <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required.</li>
+                                                </ul>
+                                            </div>
+                                        </label>
+                                        <label class="pass">
+                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': form.controls.password.valid && form.controls.password.dirty }}" >
+                                                <input type="password" name="passsword" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
+                                                <ul class="help-block">
+                                                    <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required.</li>
+                                                </ul>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" value="Login" onsubmit="">Sent</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
