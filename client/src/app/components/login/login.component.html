@@ -43,7 +43,7 @@
                                             </div>
                                         </label>
                                         <label class="pass">
-                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': form.controls.password.valid && form.controls.password.dirty }}" >
+                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': form.controls.password.valid && form.controls.password.dirty }" >
                                                 <input type="password" name="passsword" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required.</li>
@@ -51,7 +51,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" value="Login" onsubmit="">Login</button>
+                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" value="Login" onsubmit="">Sent</button>
                                 </form>
                             </div>
                         </div>
