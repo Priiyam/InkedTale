@@ -32,7 +32,7 @@
                                         {{ message }}
                                     </div>
                                 </div>
-                                <form [formGroup]="form" (submit)="onRegisterSubmit()">
+                                <form [formGroup]="form" (submit)="onLoginSubmit()">
                                     <div class="form-details">
                                         <label class="user">
                                             <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty) , 'has-success':  form.controls.username.valid && form.controls.username.dirty }" >
@@ -51,7 +51,7 @@
                                             </div>
                                         </label>
                                     </div>
-                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" value="Login" onsubmit="">Sent</button>
+                                    <button [disabled]="!form.valid || processing" type="submit" class="form-btn" value="Login" onsubmit="">Login</button>
                                 </form>
                             </div>
                         </div>
