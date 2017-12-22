@@ -44,6 +44,12 @@ export class AuthService {
     return this.http.post(this.domain + '/authentication/login', user).map(res => res.json());
   }
 
+  logout(){
+    this.authToken = null;
+    this.user = null;
+    localStorage.clear();
+  }
+
   storeUserData(token, user){
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
