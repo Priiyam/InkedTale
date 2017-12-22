@@ -35,7 +35,7 @@
                                 <form [formGroup]="form" (submit)="onLoginSubmit()">
                                     <div class="form-details">
                                         <label class="user">
-                                            <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty) , 'has-success':  form.controls.username.valid && form.controls.username.dirty }" >
+                                            <div [ngClass] = "{ 'has-error': (form.controls.username.errors && form.controls.username.dirty) , 'has-success':  (form.controls.username.valid && form.controls.username.dirty) }" >
                                                 <input type="text" name="username"  placeholder="*Username" id="username" formControlName="username" />
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.username.errors?.required && form.controls.username.dirty">This field is required.</li>
@@ -43,8 +43,8 @@
                                             </div>
                                         </label>
                                         <label class="pass">
-                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': form.controls.password.valid && form.controls.password.dirty }" >
-                                                <input type="password" name="passsword" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
+                                            <div [ngClass] = "{'has-error': (form.controls.password.errors && form.controls.password.dirty), 'has-success': (form.controls.password.valid && form.controls.password.dirty) }" >
+                                                <input type="password" name="password" autocomplete="off" placeholder="*Password" id="password" formControlName="password">
                                                 <ul class="help-block">
                                                     <li *ngIf="form.controls.password.errors?.required && form.controls.password.dirty">This field is required.</li>
                                                 </ul>
