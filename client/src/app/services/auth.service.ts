@@ -8,10 +8,25 @@ export class AuthService {
   domain= "http://localhost:8080";
   authToken;
   user;
+  options;
 
   constructor(
     private http: Http
   ) { }
+
+  createAuthenticationHeaders(){
+    this.loadToken();
+    this.options = new RequestOptions({
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'authorization': this.authToken
+      })
+    });
+  }
+
+  loadToken(){
+    this.authToken = localStorage.getItem("token");
+  }
 
   registerUser(user) {
     return this.http.post(this.domain + '/authentication/register', user).map(res => res.json());
@@ -34,6 +49,11 @@ export class AuthService {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+  }
+
+  getProfile(){
+    
+
   }
 
 }

@@ -110,5 +110,9 @@ module.exports = (router) => {
         }
     });
 
+    router.get('/profile', (req, res) => {
+        
+    });
+
     return router;
 }
