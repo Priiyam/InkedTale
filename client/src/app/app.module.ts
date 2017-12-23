@@ -30,7 +30,7 @@ import { NotAuthGuard } from './guards/notAuth.guard';
     HttpModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule
   ],
   providers: [AuthService, AuthGuard, NotAuthGuard], //services
   bootstrap: [AppComponent]
