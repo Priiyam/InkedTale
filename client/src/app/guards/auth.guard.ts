@@ -4,8 +4,19 @@ import { AuthService } from '../services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-    CanActivate(){
-        console.log('AuthGuard#canActivate called');
-        return true;
+
+    constructor(
+        private authservice: AuthService,
+        private router: Router
+    ){}
+
+    canActivate(){
+        if (this.authservice.loggedIn){
+            return true;
+        }
+        else{
+            this.router.navigate(['/login']);
+            return false;
+        }
     }
 }
