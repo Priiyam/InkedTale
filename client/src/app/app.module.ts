@@ -13,6 +13,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { AuthGuard } from './guards/auth.guard';
+import { NotAuthGuard } from './guards/notAuth.guard';
 
 @NgModule({
   declarations: [ //components
@@ -31,7 +32,7 @@ import { AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     FlashMessagesModule.forRoot()
   ],
-  providers: [AuthService, AuthGuard], //services
+  providers: [AuthService, AuthGuard, NotAuthGuard], //services
   bootstrap: [AppComponent]
 })
 export class AppModule { }
